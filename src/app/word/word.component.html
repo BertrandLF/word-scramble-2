@@ -1,0 +1,9 @@
+<div class="row info guess rounded">{{ toGuess }}</div>
+<div class="row solution rounded">
+    <input #guessValue
+        type="text"
+        (disabled)="finished"
+        (keyup)="evaluateGuess(guessValue.value)"
+        class="blended"
+        autofocus/>
+</div>

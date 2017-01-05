@@ -1,0 +1,48 @@
+$space: 30px;
+
+.info {
+    color: white;
+    max-width: 140px;
+    margin: 0 20px 20px 20px;
+
+		&.done {
+			border: solid 5px red;
+		}
+}
+
+.guess {
+		margin: auto;
+		border: none;
+		float: center;
+		line-height: 20px;
+		letter-spacing: 25px;
+		padding: 10px 15px;
+		background: white;
+		color: black;
+		width: 100%;
+		max-width: 500px;
+		text-align: center;
+}
+
+.solution {
+				margin: auto;
+				margin-bottom: $space;
+				border: none;
+				float: center;
+				line-height: 20px;
+				padding: 5px 15px;
+				background: white;
+				color: black;
+				width: 100%;
+				max-width: 500px;
+				text-align: center;
+}
+
+.blended {
+	border: none;
+
+	&:focus {
+		border: none;
+	}
+
+}

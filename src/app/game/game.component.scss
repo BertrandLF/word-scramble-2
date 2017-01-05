@@ -1,0 +1,32 @@
+/*styles for game content only*/
+@import '../../assets/styles/constants';
+
+.game {
+	margin: $space;
+  min-width: 450px;
+  max-width: 800px;
+  margin: 0 auto;
+	margin-top:$space / 2
+}
+
+.container {
+	width: 100%;
+	background-color: black;
+  border-radius: 0px 0px 8px 8px;
+}
+
+.rounded {
+		padding: 5px;
+    font-size: 25px;
+    border-radius: 8px;
+}
+
+
+.score {
+	border: solid 5px $softOrange;
+}
+
+.time {
+	border: solid 5px $softBlue;
+	float: right;
+}
