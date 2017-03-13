@@ -1,0 +1,18 @@
+/*styles for whole app*/
+@import '../assets/styles/constants';
+
+.container {
+	margin: $space;
+  min-width: 450px;
+  max-width: 800px;
+  margin: 0 auto;
+	margin-top:$space / 2;
+  background-color: black;
+  border-radius: 8px 8px;
+}
+
+.rounded {
+		padding: 5px;
+    font-size: 25px;
+    border-radius: 8px;
+}

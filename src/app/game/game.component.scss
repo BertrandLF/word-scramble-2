@@ -1,26 +1,15 @@
 /*styles for game content only*/
 @import '../../assets/styles/constants';
 
-.game {
-	margin: $space;
-  min-width: 450px;
-  max-width: 800px;
-  margin: 0 auto;
-	margin-top:$space / 2
-}
+.info {
+    color: white;
+    max-width: 140px;
+    margin: 0 20px 20px 20px;
 
-.container {
-	width: 100%;
-	background-color: black;
-  border-radius: 0px 0px 8px 8px;
+		&.done {
+			border: solid 5px red;
+		}
 }
-
-.rounded {
-		padding: 5px;
-    font-size: 25px;
-    border-radius: 8px;
-}
-
 
 .score {
 	border: solid 5px $softOrange;
