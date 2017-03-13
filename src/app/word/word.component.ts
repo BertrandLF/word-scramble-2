@@ -1,5 +1,5 @@
 import { Guess } from './../models/guess.model';
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 
 @Component({
   selector: 'ws-guess',
@@ -9,8 +9,10 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 export class WordComponent implements OnInit{
   toGuess: string;
   solution: string;
-  finished: boolean;
   nbTyped: number = 0;
+
+  @Input()
+  finished: boolean;
 
   @Output()
   foundAWord = new EventEmitter<Guess>();
@@ -24,6 +26,7 @@ export class WordComponent implements OnInit{
     this.nbTyped++;
     if (guess.toUpperCase() === this.solution.toUpperCase()) {
       this.foundAWord.emit(new Guess(this.nbTyped, this.toGuess.length));
+      this.nbTyped = 0;
     }
   }
 }

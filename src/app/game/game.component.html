@@ -2,4 +2,4 @@
     <div [ngClass]="{ done: finished }" class="col-xs-6 col-md-6 info score rounded">Score: {{ score }}</div>
     <div [ngClass]="{ done: finished }" class="col-xs-6 col-md-6 info time rounded">Time: {{ time }}</div>
 </div>
-<ws-guess (foundAWord)="updateScore($event)"></ws-guess>
+<ws-guess (foundAWord)="updateScore($event)" [finished]="finished"></ws-guess>

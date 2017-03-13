@@ -1,8 +1,6 @@
 import { Guess } from './../models/guess.model';
-import {
-  Component,
-  OnInit
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import {Observable} from 'rxjs/Rx';
 
 @Component({
   // The selector is what angular internally uses
@@ -20,14 +18,27 @@ export class GameComponent implements OnInit {
 
   score = 0;
   time = 40;
+  finished = false;
+  timerSubscription;
 
   // TypeScript public modifiers
   constructor() {}
 
   public ngOnInit() {
+    let timer = Observable.timer(0, 1000);
+    this.timerSubscription = timer.subscribe(t => this.tick());
   }
 
   public updateScore(guess: Guess) {
     this.score += Math.max(0, Math.floor(Math.pow(1.95, (guess.wordLength / 3))) - (guess.nbTyped - guess.wordLength));
   }
+
+  private tick() {
+    this.time -= 1;
+    if (this.time === 0) {
+      this.finished = true;
+      this.timerSubscription.unsubscribe();
+    }
+  }
+
 }
