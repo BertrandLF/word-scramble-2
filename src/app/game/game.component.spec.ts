@@ -14,9 +14,8 @@ import {
 import { MockBackend } from '@angular/http/testing';
 
 // Load the implementations that should be tested
-import { AppState } from '../app.service';
 import { GameComponent } from './game.component';
-import { Title } from './title';
+import { Guess } from 'app/models/guess.model';
 
 describe(`Game`, () => {
   let comp: GameComponent;
@@ -37,8 +36,6 @@ describe(`Game`, () => {
           },
           deps: [MockBackend, BaseRequestOptions]
         },
-        AppState,
-        Title,
       ]
     })
     .compileComponents(); // compile template and css
@@ -52,20 +49,17 @@ describe(`Game`, () => {
     fixture.detectChanges(); // trigger initial data binding
   });
 
-  it('should have default data', () => {
-    expect(comp.localState).toEqual({ value: '' });
+  it('should have a base score of 0', () => {
+    expect(comp.score).toEqual(0);
   });
 
-  it('should have a title', () => {
-    expect(!!comp.title).toEqual(true);
+  it('should have a timer set to 40', () => {
+    expect(comp.time).toEqual(40);
   });
 
-  it('should log ngOnInit', () => {
-    spyOn(console, 'log');
-    expect(console.log).not.toHaveBeenCalled();
-
-    comp.ngOnInit();
-    expect(console.log).toHaveBeenCalled();
+  it('should update the score on guess', () => {
+    comp.updateScore(new Guess(4, 4));
+    expect(comp.score).toBe(2);
   });
 
 });
