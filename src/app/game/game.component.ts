@@ -1,3 +1,4 @@
+import { Guess } from './../models/guess.model';
 import {
   Component,
   OnInit
@@ -17,15 +18,16 @@ import {
 })
 export class GameComponent implements OnInit {
 
+  score = 0;
+  time = 40;
+
   // TypeScript public modifiers
   constructor() {}
 
   public ngOnInit() {
-    console.log('hello `Game` component');
-    // this.title.getData().subscribe(data => this.data = data);
   }
 
-  public submitState(value: string) {
-    console.log('submitState', value);
+  public updateScore(guess: Guess) {
+    this.score += Math.max(0, Math.floor(Math.pow(1.95, (guess.wordLength / 3))) - (guess.nbTyped - guess.wordLength));
   }
 }

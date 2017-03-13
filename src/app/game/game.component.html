@@ -1,5 +1,5 @@
 <div class="row">
-    <div [ngClass]="{ done: finished }" class="col-xs-6 col-md-6 info score rounded">Score: 0</div>
-    <div [ngClass]="{ done: finished }" class="col-xs-6 col-md-6 info time rounded">Time: 40</div>
+    <div [ngClass]="{ done: finished }" class="col-xs-6 col-md-6 info score rounded">Score: {{ score }}</div>
+    <div [ngClass]="{ done: finished }" class="col-xs-6 col-md-6 info time rounded">Time: {{ time }}</div>
 </div>
-<ws-guess></ws-guess>
+<ws-guess (foundAWord)="updateScore($event)"></ws-guess>
