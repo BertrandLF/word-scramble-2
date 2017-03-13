@@ -6,8 +6,8 @@ import {
 @Component({
   // The selector is what angular internally uses
   // for `document.querySelectorAll(selector)` in our index.html
-  // where, in this case, selector is the string 'game'
-  selector: 'game',  // <game></game>
+  // where, in this case, selector is the string 'ws.game'
+  selector: 'ws-game',
   // We need to tell Angular's Dependency Injection which providers are in our app.
   providers: [],
   // Our list of styles in our component. We may add more to compose many styles together

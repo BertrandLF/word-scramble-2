@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'word-guess',
+  selector: 'ws-guess',
   templateUrl: './word.component.html',
   styleUrls: ['./word.component.scss', '../app.component.scss']
 })
