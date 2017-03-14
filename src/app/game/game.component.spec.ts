@@ -36,8 +36,8 @@ describe(`Game`, () => {
   });
 
   it('should update the score on guess', () => {
-    comp.updateScore(new Guess(4, 4));
-    expect(comp.score).toBe(2);
+    comp.updateScore(new Guess(4, 'wombat', 'tambow'));
+    expect(comp.score).toBe(9);
   });
 
   it('should lower the timer every tick', fakeAsync(() => {

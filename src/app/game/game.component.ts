@@ -1,3 +1,4 @@
+import { DatabaseService } from './../database.service';
 import { Guess } from './../models/guess.model';
 import { Component, OnInit } from '@angular/core';
 import {Observable} from 'rxjs/Rx';
