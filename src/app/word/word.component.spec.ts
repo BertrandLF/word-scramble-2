@@ -16,7 +16,8 @@ describe('WordComponent', () => {
 
   const service = {
     guess: new ReplaySubject(1),
-    wordList: ['hey', 'what']
+    wordList: ['hey', 'what'],
+    pickAWord: () => {}
   } as WordService;
 
   beforeEach(async(() => {
@@ -37,15 +38,17 @@ describe('WordComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should emit the guess if it is a match and reset nbTyped', () => {
+  it('should emit the guess if it is a match', () => {
     let foundWord = false;
     component.foundAWord.subscribe((guess) => {
       foundWord = true;
     });
     component.guessWord = new Guess(6, 'skidoo');
-    component.evaluateGuess('skidoo');
+    component.guessValue = 'skidoo';
+    component.evaluateGuess();
     expect(component.nbTyped).toBe(0);
     expect(foundWord).toBeTruthy;
+    expect(component.guessValue).toBe('');
   });
 
   it('should not emit the guess if it is not a match, increase nbTyped', () => {
@@ -54,7 +57,8 @@ describe('WordComponent', () => {
       foundWord = true;
     });
     component.guessWord = new Guess(6, 'skidoo');
-    component.evaluateGuess('skidol');
+    component.guessValue = 'skidol';
+    component.evaluateGuess();
     expect(component.nbTyped).toBe(1);
     expect(foundWord).toBeFalsy;
   });

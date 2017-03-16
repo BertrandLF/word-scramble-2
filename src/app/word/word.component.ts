@@ -11,6 +11,7 @@ import { WordService } from 'app/word.service';
 export class WordComponent implements OnInit, OnDestroy {
   guessWord: Guess;
   nbTyped: number = 0;
+  guessValue: string = '';
   guessSubscription;
   @Input()
   finished: boolean;
@@ -26,11 +27,13 @@ export class WordComponent implements OnInit, OnDestroy {
     });
   }
 
-  evaluateGuess(guess: string): void {
+  evaluateGuess(): void {
     this.nbTyped++;
-    if (guess.toUpperCase() === this.solution().toUpperCase()) {
+    if (this.guessValue.toUpperCase() === this.solution().toUpperCase()) {
       this.foundAWord.emit(new Guess(this.nbTyped, this.solution()));
       this.nbTyped = 0;
+      this.guessValue = '';
+      this.ws.pickAWord();
     }
   }
 

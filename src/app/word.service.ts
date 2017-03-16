@@ -14,19 +14,19 @@ export class WordService {
   constructor(private db: DatabaseService) {
     this.db.words.subscribe(words => {
       this.wordList = words;
-      this.guess.next(this.pickAWord());
+      this.pickAWord();
     });
   }
 
   public pickAWord() {
-    // firebaseArray starts at 1, so use ceil
-    const index = Math.ceil(this.wordList.length * Math.random());
+    const index = Math.floor(this.wordList.length * Math.random());
     const currentWord = this.wordList[index];
-    return new Guess(
-      currentWord.length,
-      currentWord,
-      this.scramble(currentWord)
-    );
+    this.guess.next(
+      new Guess(
+        currentWord.length,
+        currentWord,
+        this.scramble(currentWord)
+      ));
   }
 
   private scramble(word: string) {
@@ -34,7 +34,6 @@ export class WordService {
       return Math.random() > .5 ? -1 : 1;
     }
     const scrambled = word.split('').sort(randomSort).join('').toUpperCase();
-    console.log('FINALLY', scrambled);
     return word.toUpperCase() !== scrambled ? scrambled : this.scramble(word);
   }
 }
