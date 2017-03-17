@@ -36,8 +36,13 @@ describe(`Game`, () => {
   });
 
   it('should update the score on guess', () => {
-    comp.updateScore(new Guess(4, 'wombat', 'tambow'));
-    expect(comp.score).toBe(9);
+    comp.updateScore(new Guess(6, 'wombat', 'tambow'));
+    expect(comp.score).toBe(3);
+  });
+
+  it('should lower the score if the user typed more than required', () => {
+    comp.updateScore(new Guess(9, 'wombat', 'tambow'));
+    expect(comp.score).toBe(0);
   });
 
   it('should lower the timer every tick', fakeAsync(() => {

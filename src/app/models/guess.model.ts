@@ -9,6 +9,6 @@ export class Guess {
     this.wordLength = solution.length;
     this.solution = solution;
     this.guess = guess;
-    this.nbTyped = 0;
+    this.nbTyped = nbTyped;
   }
 }
