@@ -2,7 +2,6 @@ import { Observable } from 'rxjs/Rx';
 import { Guess } from 'app/models/guess.model';
 import { DatabaseService } from 'app/database.service';
 import { Injectable, OnInit } from '@angular/core';
-import { Subject } from '@angular/core/src/facade/async';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
 
 @Injectable()
