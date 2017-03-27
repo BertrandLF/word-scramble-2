@@ -21,11 +21,18 @@ module.exports = function (config) {
       './src/test.ts': ['@angular/cli']
     },
     mime: {
-      'text/x-typescript': ['ts','tsx']
+      'text/x-typescript': ['ts', 'tsx']
     },
     coverageIstanbulReporter: {
-      reports: [ 'json', 'json-summary'],
-      fixWebpackSourcePaths: true
+      reports: ['json', 'json-summary', 'html'],
+      fixWebpackSourcePaths: true,
+      'report-config': {
+        // all options available at: https://github.com/istanbuljs/istanbul-reports/blob/590e6b0089f67b723a1fdf57bc7ccc080ff189d7/lib/html/index.js#L135-L137
+        html: {
+          // outputs the report in ./coverage/html
+          subdir: 'html'
+        }
+      }
     },
     jsonReporter: {
       stdout: false,
