@@ -23,7 +23,7 @@ describe('WordService', () => {
     });
   });
 
-  fit('should get a guess from the databaseService', inject([WordService], (service: WordService) => {
+  it('should get a guess from the databaseService', inject([WordService], (service: WordService) => {
     expect(service).toBeTruthy();
     myWords.next(['Bertrand']);
     service.guess.subscribe((word: Guess) => {
