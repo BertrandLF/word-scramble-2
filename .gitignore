@@ -3,7 +3,7 @@
 # compiled output
 /dist
 /tmp
-
+/results
 # dependencies
 /node_modules
 
