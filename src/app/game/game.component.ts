@@ -1,7 +1,9 @@
+import { HighscoreComponent } from './../highscore/highscore.component';
 import { DatabaseService } from './../database.service';
 import { Guess } from './../models/guess.model';
 import { Component, OnInit } from '@angular/core';
-import {Observable} from 'rxjs/Rx';
+import { Observable } from 'rxjs/Rx';
+import { NgbModal, NgbModalOptions } from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   // The selector is what angular internally uses
@@ -18,12 +20,12 @@ import {Observable} from 'rxjs/Rx';
 export class GameComponent implements OnInit {
 
   score = 0;
-  time = 40;
+  time = 1;
   finished = false;
   timerSubscription;
 
   // TypeScript public modifiers
-  constructor() {}
+  constructor(private ngbModal: NgbModal) {}
 
   public ngOnInit() {
     let timer = Observable.timer(0, 1000);
@@ -39,7 +41,15 @@ export class GameComponent implements OnInit {
     if (this.time === 0) {
       this.finished = true;
       this.timerSubscription.unsubscribe();
+      this.handleHighscore();
     }
+  }
+
+  private handleHighscore() {
+    this.ngbModal.open(
+      HighscoreComponent,
+      { size: 'sm' }
+    );
   }
 
 }

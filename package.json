@@ -22,8 +22,9 @@
     "@angular/platform-browser": "4.0.0",
     "@angular/platform-browser-dynamic": "4.0.0",
     "@angular/router": "4.0.0",
-    "bootstrap": "4.0.0-alpha.6",
+    "@ng-bootstrap/ng-bootstrap": "^1.0.0-alpha.22",
     "angularfire2": "^2.0.0-beta.8",
+    "bootstrap": "4.0.0-alpha.6",
     "core-js": "^2.4.1",
     "firebase": "^3.7.3",
     "ng2-bootstrap": "^1.1.16-11",
@@ -53,7 +54,6 @@
     "tslint": "4.5.1",
     "typescript": "2.2.1",
     "raw-loader": "^0.5.1",
-    "sass-loader": "^6.0.3",
-    "ts-node": "3.0.2"
+    "sass-loader": "^6.0.3"
   }
 }

@@ -1,3 +1,4 @@
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TestBed, ComponentFixture, async, fakeAsync, tick, discardPeriodicTasks } from '@angular/core/testing';
 import { Component } from '@angular/core';
 import {
@@ -16,10 +17,11 @@ import { Guess } from 'app/models/guess.model';
 describe(`Game`, () => {
   let comp: GameComponent;
   let fixture: ComponentFixture<GameComponent>;
+  const ngbModal = {} as NgbModal;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [AppModule]
+      imports: [AppModule, NgbModal],
     });
     fixture = TestBed.createComponent(GameComponent);
     comp = fixture.componentInstance;
@@ -46,7 +48,7 @@ describe(`Game`, () => {
   });
 
   it('should lower the timer every tick', fakeAsync(() => {
-    const gameComponent = new GameComponent();
+    const gameComponent = new GameComponent(ngbModal);
     gameComponent.ngOnInit();
     expect(gameComponent.time).toEqual(40);
     tick();
@@ -57,7 +59,7 @@ describe(`Game`, () => {
   }));
 
   it('should set finished to true when the timer reaches 0', fakeAsync(() => {
-    const gameComponent = new GameComponent();
+    const gameComponent = new GameComponent(ngbModal);
     gameComponent.ngOnInit();
     tick(39000);
     expect(gameComponent.time).toEqual(0);

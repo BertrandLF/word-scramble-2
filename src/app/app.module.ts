@@ -6,12 +6,14 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 import { AngularFireModule } from 'angularfire2';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { GameComponent } from './game/game.component';
 import { WordComponent } from './word/word.component';
 import { ROUTES } from './app.routes';
+import { HighscoreComponent } from './highscore/highscore.component';
 
 export const firebaseconfig = {
   apiKey: 'AIzaSyAxUtobwZQFfJD07kJwDC7EKMhsOEr7KmM',
@@ -26,15 +28,18 @@ export const firebaseconfig = {
     AppComponent,
     MenuComponent,
     GameComponent,
-    WordComponent
+    WordComponent,
+    HighscoreComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AngularFireModule.initializeApp(firebaseconfig),
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules }),
-    HttpModule
+    HttpModule,
+    NgbModule.forRoot()
   ],
+  entryComponents: [HighscoreComponent],
   providers: [DatabaseService, WordService],
   bootstrap: [AppComponent]
 })
