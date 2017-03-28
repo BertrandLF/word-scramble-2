@@ -3,8 +3,6 @@ $space: 30px;
 .info {
     color: white;
     max-width: 140px;
-    margin: 0 20px 20px 20px;
-
 		&.done {
 			border: solid 5px red;
 		}
@@ -25,10 +23,8 @@ $space: 30px;
 }
 
 .solution {
-				margin: auto;
-				margin-bottom: $space;
+				margin: 0 auto 10px;
 				border: none;
-				float: center;
 				line-height: 20px;
 				padding: 5px 15px;
 				background: white;

@@ -17,5 +17,6 @@
 
 .time {
 	border: solid 5px $softBlue;
-	float: right;
+	position: absolute;
+  right: 0;
 }
