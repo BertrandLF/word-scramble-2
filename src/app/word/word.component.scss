@@ -8,37 +8,27 @@ $space: 30px;
 		}
 }
 
-.guess {
+.tooth {
 		margin: auto;
 		border: none;
-		float: center;
 		line-height: 20px;
 		letter-spacing: 25px;
-		padding: 10px 15px;
+		padding: 10px;
 		background: white;
 		color: black;
-		width: 100%;
 		max-width: 500px;
-		text-align: center;
+
+		&:last-of-type {
+			margin-bottom: 10px;
+			padding : 5px;
+		}
 }
 
-.solution {
-				margin: 0 auto 10px;
-				border: none;
-				line-height: 20px;
-				padding: 5px 15px;
-				background: white;
-				color: black;
-				width: 100%;
-				max-width: 500px;
-				text-align: center;
+.text {
+		width: 100%;
+		text-align: center;
 }
 
 .blended {
 	border: none;
-
-	&:focus {
-		border: none;
-	}
-
 }

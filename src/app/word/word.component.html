@@ -1,10 +1,14 @@
-<div class="row info guess rounded">{{ guessWord?.guess }}</div>
-<div class="row solution rounded">
-    <input
+<div class="row tooth rounded">
+    <div class="text">{{ guessWord?.guess }}</div>
+</div>
+<div class="row tooth rounded">
+    <div class="text">
+        <input
         [(ngModel)]="guessValue"
         type="text"
         [disabled]="finished"
         (keyup)="evaluateGuess()"
         class="blended"
         autofocus/>
+    </div>
 </div>
